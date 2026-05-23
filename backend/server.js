@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || '*',
+  origin: ['https://transport-management-psi.vercel.app', 'http://localhost:5173', 'http://localhost:5177'],
   credentials: true
 }));
 app.use(express.json());
