@@ -156,8 +156,10 @@ const Register = () => {
                     name="phone"
                     type="tel"
                     required
+                    maxLength={10}
+                    pattern="[0-9]{10}"
                     className="mt-1 appearance-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    placeholder="Enter your phone number"
+                    placeholder="Enter your phone number (10 digits)"
                     value={formData.phone}
                     onChange={handleChange}
                   />
