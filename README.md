@@ -420,6 +420,25 @@ VITE_API_URL=http://localhost:5000/api
 4. Set `FRONTEND_URL` to production frontend URL
 5. Use a process manager like PM2: `pm2 start server.js`
 
+#### Render
+
+For a Render Web Service, set the root directory to `backend`, the build command
+to `npm install`, and the start command to `npm start`. Add these environment
+variables in the Render dashboard:
+
+```env
+NODE_ENV=production
+MONGODB_URI=mongodb+srv://<user>:<password>@<atlas-cluster-host>/transport-management
+JWT_SECRET=<strong-random-secret>
+FRONTEND_URL=https://<your-frontend-domain>
+```
+
+The Atlas cluster host must be copied from the MongoDB Atlas connection dialog.
+If Render reports `querySrv ENOTFOUND`, the `MONGODB_URI` hostname is invalid,
+the cluster no longer exists, or its DNS record is unavailable. Replace the
+variable with the current Atlas connection string and allow Render's outbound
+IP access in the Atlas network settings.
+
 ### Frontend
 1. Run `npm run build` to create production build
 2. Deploy the `dist` folder to a hosting service (Vercel, Netlify, etc.)
